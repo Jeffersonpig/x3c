@@ -10,8 +10,7 @@ Cx_ObjectFactory::Cx_ObjectFactory()
 
 Cx_ObjectFactory::~Cx_ObjectFactory()
 {
-    for (std::vector<MODULE*>::iterator it = m_modules.begin(); 
-        it != m_modules.end(); ++it)
+    for (std::vector<MODULE*>::iterator it = m_modules.begin(); it != m_modules.end(); ++it)
     {
         x3::SafeDelete(*it);
     }
@@ -36,8 +35,7 @@ int Cx_ObjectFactory::CreateObject(const X3CLSID& clsid,
 
     if (pEntry && !pEntry->pfnObjectCreator && moduleIndex >= 0)
     {
-        if (!LoadDelayedPlugin_(m_modules[moduleIndex]->filename)
-            && 0 == m_unloading && x3InMainThread())
+        if (!LoadDelayedPlugin_(m_modules[moduleIndex]->filename) && 0 == m_unloading && x3InMainThread())
         {
             CLSMAP::iterator it = m_clsmap.find(clsid.str());
             if (it != m_clsmap.end())
@@ -56,8 +54,7 @@ int Cx_ObjectFactory::CreateObject(const X3CLSID& clsid,
     return *ppv ? 0 : 3;
 }
 
-X3CLASSENTRY* Cx_ObjectFactory::FindEntry(const X3CLSID& clsid,
-                                          int* moduleIndex)
+X3CLASSENTRY* Cx_ObjectFactory::FindEntry(const X3CLSID& clsid, int* moduleIndex)
 {
     CLSMAP::iterator it = m_clsmap.find(clsid.str());
     if (moduleIndex)
@@ -92,8 +89,7 @@ Ix_Module* Cx_ObjectFactory::GetModule(HMODULE hModule)
     }
 
     typedef Ix_Module* (*FUNC_MODULE)(Ix_ObjectFactory*, HMODULE);
-    FUNC_MODULE pfn = (FUNC_MODULE)GetProcAddress(
-        hModule, "x3GetModuleInterface");
+    FUNC_MODULE pfn = (FUNC_MODULE)GetProcAddress(hModule, "x3GetModuleInterface");
 
     if (pfn != NULL)
     {

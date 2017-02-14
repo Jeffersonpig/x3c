@@ -18,8 +18,7 @@ public:
 
     int CreateObject(const X3CLSID& clsid, X3IID iid, Ix_Object** ppv, HMODULE fromdll)
     {
-        if (x3::CLSID_AppWorkPath == clsid
-            || x3::CLSID_PluginDelayLoad == clsid)
+        if (x3::CLSID_AppWorkPath == clsid || x3::CLSID_PluginDelayLoad == clsid)
         {
             return QueryObject(iid, ppv, fromdll) ? 0 : 1;
         }
