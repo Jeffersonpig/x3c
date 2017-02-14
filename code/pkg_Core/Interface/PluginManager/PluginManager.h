@@ -91,10 +91,8 @@ public:
         Ix_PluginLoader* pLoader = GetPluginLoader();
         if (pLoader)
         {
-            pLoader->LoadPluginFiles(subdir, plugins,
-                instance, enableDelayLoading);
+            pLoader->LoadPluginFiles(subdir, plugins, instance, enableDelayLoading);
             pLoader->InitializePlugins();
-
             return true;
         }
 
@@ -145,7 +143,7 @@ private:
     CPluginManager(const CPluginManager&);
     void operator=(const CPluginManager&);
 
-    wchar_t     m_filename[MAX_PATH];
+    wchar_t m_filename[MAX_PATH];
 };
 
 #endif // X3_MANAGER_PLUGINMANAGER_H_
