@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <PropertyPageSchema
+      Include="$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml" />
+    <AvailableItemName
+      Include="swig__python">
+      <Targets>_swig__python</Targets>
+    </AvailableItemName>
+  </ItemGroup>
+  <UsingTask
+    TaskName="swig__python"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <Target
+    Name="_swig__python"
+    BeforeTargets="$(swig__pythonBeforeTargets)"
+    AfterTargets="$(swig__pythonAfterTargets)"
+    Condition="'@(swig__python)' != ''"
+    DependsOnTargets="$(swig__pythonDependsOn);Computeswig__pythonOutput"
+    Outputs="%(swig__python.Outputs)"
+    Inputs="%(swig__python.Identity);%(swig__python.AdditionalDependencies);$(MSBuildProjectFile)">
+    <ItemGroup
+      Condition="'@(SelectedFiles)' != ''">
+      <swig__python
+        Remove="@(swig__python)"
+        Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <swig__python_tlog
+        Include="%(swig__python.Outputs)"
+        Condition="'%(swig__python.Outputs)' != '' and '%(swig__python.ExcludedFromBuild)' != 'true'">
+        <Source>@(swig__python, '|')</Source>
+      </swig__python_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(swig__python.ExecutionDescription)" />
+    <WriteLinesToFile
+      Condition="'@(swig__python_tlog)' != '' and '%(swig__python_tlog.ExcludedFromBuild)' != 'true'"
+      File="$(TLogLocation)$(ProjectName).write.1.tlog"
+      Lines="^%(swig__python_tlog.Source);@(swig__python_tlog-&gt;'%(Fullpath)')" />
+    <swig__python
+      Condition="'@(swig__python)' != '' and '%(swig__python.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(swig__python.CommandLineTemplate)"
+      AdditionalOptions="%(swig__python.AdditionalOptions)"
+      Inputs="%(swig__python.Identity)" />
+  </Target>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+            $(ComputeLinkInputsTargets);
+            Computeswig__pythonOutput;
+          </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+            $(ComputeLibInputsTargets);
+            Computeswig__pythonOutput;
+          </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <Target
+    Name="Computeswig__pythonOutput"
+    Condition="'@(swig__python)' != ''">
+    <ItemGroup>
+      <swig__pythonDirsToMake
+        Condition="'@(swig__python)' != '' and '%(swig__python.ExcludedFromBuild)' != 'true'"
+        Include="%(swig__python.Outputs)" />
+      <Link
+        Include="%(swig__pythonDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <Lib
+        Include="%(swig__pythonDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <ImpLib
+        Include="%(swig__pythonDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+    </ItemGroup>
+    <MakeDir
+      Directories="@(swig__pythonDirsToMake-&gt;'%(RootDir)%(Directory)')" />
+  </Target>
+</Project>

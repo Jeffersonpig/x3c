@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Public">
+      <UniqueIdentifier>{aa2f1441-377e-44e3-887e-09ed6bc3a7e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{9180f655-5b12-4b48-b97c-340733824417}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Plugin">
+      <UniqueIdentifier>{4e1d5ee1-ad86-4476-91b2-dd11a12441e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Portability">
+      <UniqueIdentifier>{c9618f9c-5c81-42a9-b585-0e9e016537b8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\code\pkg_UnitTest\Modules\TestCore\TestChangeObserver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\pkg_UnitTest\Modules\TestCore\TestConfigXml.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\pkg_UnitTest\Modules\TestCore\TestLoadPlugin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\pkg_UnitTest\Modules\TestCore\TestLogging.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\pkg_UnitTest\Modules\TestCore\TestPluginManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\pkg_UnitTest\Modules\TestCore\TestStringTable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\pkg_UnitTest\Modules\TestCore\TestTextUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\pkg_UnitTest\Modules\Public\BaseTest.cpp">
+      <Filter>Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\pkg_UnitTest\Modules\Public\UnitTests.cpp">
+      <Filter>Public</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\code\pkg_UnitTest\Modules\TestCore\TestChangeObserver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_UnitTest\Modules\TestCore\TestConfigXml.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_UnitTest\Modules\TestCore\TestLoadPlugin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_UnitTest\Modules\TestCore\TestLogging.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_UnitTest\Modules\TestCore\TestPluginManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_UnitTest\Modules\TestCore\TestStringTable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_UnitTest\Modules\TestCore\TestTextUtil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_UnitTest\Modules\Public\BaseTest.h">
+      <Filter>Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_Core\Interface\Ix_Object.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_Core\Interface\Ix_ObjectFactory.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_Core\Interface\XComPtr.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_Core\Interface\Module\Cx_Module.h">
+      <Filter>Core\Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_Core\Interface\Module\Cx_Object.h">
+      <Filter>Core\Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_Core\Interface\Module\Cx_SingletonObject.h">
+      <Filter>Core\Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_Core\Interface\Module\Ix_Module.h">
+      <Filter>Core\Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_Core\Interface\Module\XClassItem.h">
+      <Filter>Core\Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_Core\Interface\Module\XClassMacro.h">
+      <Filter>Core\Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_Core\Interface\Module\XModuleImpl.h">
+      <Filter>Core\Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_Core\Interface\Module\XModuleItem.h">
+      <Filter>Core\Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_Core\Interface\Module\XModuleMacro.h">
+      <Filter>Core\Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_Core\Interface\Portability\linuximpl.h">
+      <Filter>Core\Portability</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_Core\Interface\Portability\macimpl.h">
+      <Filter>Core\Portability</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_Core\Interface\Portability\obsolete.h">
+      <Filter>Core\Portability</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_Core\Interface\Portability\pathstr.h">
+      <Filter>Core\Portability</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_Core\Interface\Portability\portimpl.h">
+      <Filter>Core\Portability</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_Core\Interface\Portability\win32impl.h">
+      <Filter>Core\Portability</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_Core\Interface\UtilFunc\X3Portability.h">
+      <Filter>Core\Portability</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_Core\Interface\Portability\x3unix.h">
+      <Filter>Core\Portability</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\pkg_Core\Interface\Portability\x3win.h">
+      <Filter>Core\Portability</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

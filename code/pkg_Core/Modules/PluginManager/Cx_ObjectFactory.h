@@ -5,27 +5,9 @@
 #include <Module/XClassItem.h>
 #include <Module/Ix_Module.h>
 #include <Ix_ObjectFactory.h>
+#include <unordered_map>
 
-#if defined(_MSC_VER) && _MSC_VER > 1200    // not VC6
-    #include <hash_map>
-    using stdext::hash_map;
-/*
-#elif defined(__GNUC__)                     // gcc
-    #include <ext/hash_map>
-    using __gnu_cxx::hash_map;
-    namespace __gnu_cxx {
-        template<> struct hash<std::string>
-        {
-            size_t operator()(const std::string& s) const
-            {
-                return hash<char*>()(s.c_str());
-            }
-        };
-    } // of namespace __gnu_cxx
-*/
-#else                                       // VC6 or others
-    #define hash_map std::map
-#endif
+#define hash_map std::unordered_map
 
 class Cx_ObjectFactory
     : public Ix_ObjectFactory

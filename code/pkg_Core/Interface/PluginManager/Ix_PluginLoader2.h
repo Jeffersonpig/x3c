@@ -7,6 +7,7 @@
 #define X3_MANAGER_IPLUGINLOADER2_H_
 
 #include "Ix_ObjectFactory.h"
+#include <string>
 
 /*! \ingroup _GROUP_PLUGIN_CORE2_
  *  \interface Ix_PluginLoader2

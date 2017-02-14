@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup
+    Condition="'$(swig__pythonBeforeTargets)' == '' and '$(swig__pythonAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <swig__pythonBeforeTargets>Midl</swig__pythonBeforeTargets>
+    <swig__pythonAfterTargets>CustomBuild</swig__pythonAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <swig__pythonDependsOn
+      Condition="'$(ConfigurationType)' != 'Makefile'">_SelectedFiles;$(swig__pythonDependsOn)</swig__pythonDependsOn>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <swig__python>
+      <CommandLineTemplate>if not exist $(OutDir) mkdir $(OutDir)
+swig.exe -c++ -python -I$(ProjectDir)..\..\..\code\pkg_Core\Interface -outdir $(OutDir) %(FullPath)</CommandLineTemplate>
+      <Outputs>%(Filename)_wrap.cxx</Outputs>
+      <ExecutionDescription>swig generating</ExecutionDescription>
+    </swig__python>
+  </ItemDefinitionGroup>
+</Project>
