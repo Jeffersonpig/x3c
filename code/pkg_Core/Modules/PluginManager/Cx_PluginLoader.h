@@ -4,20 +4,20 @@
 
 #include "Cx_ObjectFactory.h"
 #include <PluginManager/Ix_PluginLoader.h>
-#include <PluginManager/Ix_PluginLoader2.h>
+//#include <PluginManager/Ix_PluginLoader2.h>
 #include <PluginManager/Ix_AppWorkPath.h>
 #include <PluginManager/Ix_PluginDelayLoad.h>
 
 class Cx_PluginLoader
     : public Cx_ObjectFactory
     , public Ix_PluginLoader
-    , public Ix_PluginLoader2
+    //, public Ix_PluginLoader2 //zhuyf: remove class Ix_PluginLoader2
     , public Ix_PluginDelayLoad
     , public Ix_AppWorkPath
 {
     X3BEGIN_CLASS_DECLARE(Cx_PluginLoader)
         X3DEFINE_INTERFACE_ENTRY(Ix_PluginLoader)
-        X3DEFINE_INTERFACE_ENTRY(Ix_PluginLoader2)
+        //X3DEFINE_INTERFACE_ENTRY(Ix_PluginLoader2)
         X3DEFINE_INTERFACE_ENTRY(Ix_PluginDelayLoad)
         X3DEFINE_INTERFACE_ENTRY(Ix_AppWorkPath)
         X3USE_INTERFACE_ENTRY(Cx_ObjectFactory)
@@ -29,7 +29,6 @@ public:
     HMODULE GetMainModuleHandle();
 
     // From Ix_PluginLoader
-    //
     virtual long LoadPlugins(HMODULE instance, const wchar_t* path,
         const wchar_t* ext = L".plugin" PLNEXT, 
         bool recursive = true, bool enableDelayLoading = true);
@@ -45,12 +44,10 @@ public:
     virtual long UnloadPlugins();
 
     // From Ix_PluginLoader2
-    //
     virtual long GetPluginCount();
     virtual bool GetPluginFileName(long index, HMODULE& hdll, std::wstring& filename);
 
     // From Ix_PluginDelayLoad
-    //
     virtual void AddObserverPlugin(HMODULE hdll, const char* obtype, const wchar_t* subtype = L"");
     virtual void FireFirstEvent(const char* obtype, const wchar_t* subtype = L"");
     virtual bool LoadDelayedPlugin(const std::wstring& filename);

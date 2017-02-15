@@ -127,13 +127,13 @@ public:
         return factory.P();
     }
 
-    static HMODULE& Handle()
+    static HMODULE& Handle()	//HMODULE of PluginManagerX3
     {
         static HMODULE s_dll = NULL;
         return s_dll;
     }
 
-    static Ix_ObjectFactory*& Factory()
+    static Ix_ObjectFactory*& Factory()	//objectfactory of PluginManagerX3
     {
         static Ix_ObjectFactory* s_factory = NULL;
         return s_factory;

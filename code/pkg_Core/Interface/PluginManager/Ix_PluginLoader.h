@@ -7,6 +7,7 @@
 #define X3_MANAGER_IPLUGINLOADER_H_
 
 #include "Ix_Object.h"
+#include <string>
 
 /*! \ingroup _GROUP_PLUGIN_CORE_
  *  \interface Ix_PluginLoader
@@ -102,6 +103,10 @@ public:
         \see optional export function: OUTAPI void x3UninitializePlugin()
     */
     virtual long UnloadPlugins() = 0;
+
+	//zhuyf:move from Ix_PluginLoader2
+    virtual long GetPluginCount() = 0;
+    virtual bool GetPluginFileName(long index, HMODULE& hdll, std::wstring& filename) = 0;
 };
 
 #endif // X3_MANAGER_IPLUGINLOADER_H_

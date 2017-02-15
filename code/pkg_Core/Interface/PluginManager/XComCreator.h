@@ -59,8 +59,7 @@ int x3CreateObject(const X3CLSID& clsid, X3IID iid, Ix_Object** ppv)
     *ppv = NULL;
 
     typedef int (*FUNC_CREATE)(const char*, X3IID, Ix_Object**, HMODULE);
-    FUNC_CREATE pfn = (FUNC_CREATE)GetProcAddress(
-        g_hPluginDll, "x3InternalCreateObject");
+    FUNC_CREATE pfn = (FUNC_CREATE)GetProcAddress(g_hPluginDll, "x3InternalCreateObject");
 
     return pfn ? (*pfn)(clsid.str(), iid, ppv, NULL) : 1;
 }

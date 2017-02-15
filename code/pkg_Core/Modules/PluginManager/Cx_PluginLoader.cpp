@@ -39,8 +39,7 @@ void Cx_PluginLoader::ReplaceSlashes(wchar_t* filename)
     }
 }
 
-void Cx_PluginLoader::MakeFullPath(wchar_t* fullpath, HMODULE instance,
-                                   const wchar_t* path)
+void Cx_PluginLoader::MakeFullPath(wchar_t* fullpath, HMODULE instance, const wchar_t* path)
 {
     if (!path || 0 == path[0] || PathIsRelativeW(path))
     {
@@ -206,8 +205,7 @@ long Cx_PluginLoader::InitializePlugins()
         }
 
         typedef bool (*FUNC_INIT)();
-        FUNC_INIT pfn = (FUNC_INIT)GetProcAddress(
-            m_modules[i]->hdll, "x3InitializePlugin");
+        FUNC_INIT pfn = (FUNC_INIT)GetProcAddress(m_modules[i]->hdll, "x3InitializePlugin");
 
         if (pfn && !(*pfn)())
         {
@@ -224,7 +222,6 @@ long Cx_PluginLoader::InitializePlugins()
     }
 
     SaveClsids();
-
     return count;
 }
 
@@ -351,8 +348,7 @@ bool Cx_PluginLoader::UnloadPlugin(const wchar_t* name)
     }
 
     typedef bool (*FUNC_CANUNLOAD)();
-    FUNC_CANUNLOAD pfnCan = (FUNC_CANUNLOAD)GetProcAddress(
-        hdll, "x3CanUnloadPlugin");
+    FUNC_CANUNLOAD pfnCan = (FUNC_CANUNLOAD)GetProcAddress(hdll, "x3CanUnloadPlugin");
 
     if (pfnCan && !pfnCan())
     {
@@ -360,8 +356,7 @@ bool Cx_PluginLoader::UnloadPlugin(const wchar_t* name)
     }
 
     typedef void (*FUNC_UNLOAD)();
-    FUNC_UNLOAD pfnUnload = (FUNC_UNLOAD)GetProcAddress(
-        hdll, "x3UninitializePlugin");
+    FUNC_UNLOAD pfnUnload = (FUNC_UNLOAD)GetProcAddress(hdll, "x3UninitializePlugin");
 
     if (pfnUnload)
     {
@@ -386,8 +381,7 @@ long Cx_PluginLoader::UnloadPlugins()
     for (i = x3::GetSize(m_modules) - 1; i >= 0; i--)
     {
         typedef void (*FUNC_UNLOAD)();
-        FUNC_UNLOAD pfnUnload = (FUNC_UNLOAD)GetProcAddress(
-            m_modules[i]->hdll, "x3UninitializePlugin");
+        FUNC_UNLOAD pfnUnload = (FUNC_UNLOAD)GetProcAddress(m_modules[i]->hdll, "x3UninitializePlugin");
         if (pfnUnload)
         {
             pfnUnload();
