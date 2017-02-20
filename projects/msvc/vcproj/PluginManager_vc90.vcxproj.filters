@@ -24,9 +24,6 @@
     <ClCompile Include="..\..\..\code\pkg_Core\Modules\PluginManager\Cx_PluginLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\code\pkg_Core\Modules\PluginManager\DelayLoad.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\code\pkg_Core\Modules\PluginManager\Module.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -45,9 +42,6 @@
       <Filter>Interface</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\code\pkg_Core\Interface\PluginManager\Ix_PluginLoader.h">
-      <Filter>Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\code\pkg_Core\Interface\PluginManager\Ix_PluginLoader2.h">
       <Filter>Interface</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\code\pkg_Core\Interface\PluginManager\PluginManager.h">

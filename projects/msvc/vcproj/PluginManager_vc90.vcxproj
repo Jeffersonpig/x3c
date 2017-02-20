@@ -177,7 +177,6 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\code\pkg_Core\Modules\PluginManager\Cx_ObjectFactory.cpp" />
     <ClCompile Include="..\..\..\code\pkg_Core\Modules\PluginManager\Cx_PluginLoader.cpp" />
-    <ClCompile Include="..\..\..\code\pkg_Core\Modules\PluginManager\DelayLoad.cpp" />
     <ClCompile Include="..\..\..\code\pkg_Core\Modules\PluginManager\Module.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -186,7 +185,6 @@
     <ClInclude Include="..\..\..\code\pkg_Core\Interface\PluginManager\Ix_AppWorkPath.h" />
     <ClInclude Include="..\..\..\code\pkg_Core\Interface\PluginManager\Ix_PluginDelayLoad.h" />
     <ClInclude Include="..\..\..\code\pkg_Core\Interface\PluginManager\Ix_PluginLoader.h" />
-    <ClInclude Include="..\..\..\code\pkg_Core\Interface\PluginManager\Ix_PluginLoader2.h" />
     <ClInclude Include="..\..\..\code\pkg_Core\Interface\PluginManager\PluginManager.h" />
     <ClInclude Include="..\..\..\code\pkg_Core\Interface\PluginManager\XComCreator.h" />
   </ItemGroup>

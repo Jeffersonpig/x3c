@@ -3,8 +3,12 @@
 #include "Cx_PluginLoader.h"
 #include <UtilFunc/LockCount.h>
 
-bool Cx_PluginLoader::LoadPluginOrDelay(const wchar_t* pluginFile,
-                                        bool enableDelayLoading)
+#include <Xml/Ix_ConfigXml.h>
+#include <Xml/Cx_ConfigSection.h>
+#include <Xml/Ix_ConfigTransaction.h>
+#include <UtilFunc/ConvStr.h>
+
+bool Cx_PluginLoader::LoadPluginOrDelay(const wchar_t* pluginFile, bool enableDelayLoading)
 {
     if (GetPluginIndex(pluginFile) >= 0)    // Already loaded.
     {
@@ -126,11 +130,6 @@ bool Cx_PluginLoader::LoadClsidsFromCache(const wchar_t* filename)
     return true;
 }
 
-#include <Xml/Ix_ConfigXml.h>
-#include <Xml/Cx_ConfigSection.h>
-#include <Xml/Ix_ConfigTransaction.h>
-#include <UtilFunc/ConvStr.h>
-
 bool Cx_PluginLoader::LoadCacheFile(const wchar_t* pluginFile)
 {
     bool loaded = false;
@@ -242,8 +241,7 @@ bool Cx_PluginLoader::SaveClsids()
     return autosave.Submit();
 }
 
-void Cx_PluginLoader::AddObserverPlugin(HMODULE hdll, const char* obtype, 
-                                        const wchar_t* subtype)
+void Cx_PluginLoader::AddObserverPlugin(HMODULE hdll, const char* obtype, const wchar_t* subtype)
 {
     wchar_t filename[MAX_PATH] = { 0 };
     Cx_Interface<Ix_ConfigXml> pIFFile(m_cache);
@@ -295,7 +293,6 @@ void Cx_PluginLoader::FireFirstEvent(const char* obtype, const wchar_t* subtype)
 bool Cx_PluginLoader::LoadDelayedPlugin(const std::wstring& filename)
 {
     int moduleIndex = GetPluginIndex(filename.c_str());
-
     return moduleIndex >= 0 && (m_modules[moduleIndex]->hdll
         || LoadDelayedPlugin_(m_modules[moduleIndex]->filename));
 }
